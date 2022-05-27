@@ -8,7 +8,7 @@ const validator = require("../../helpers/validator")
 const readWithSessions = require("./readWithSession.classController");
 const { checkToken } = require("../../middlewares/jwt")
 
-router.post('/', createClass.validation, validator, createClass.service);
+router.post('/', checkToken, createClass.validation, validator, createClass.service);
 router.put('/:id',updateClass.service);
 router.delete('/:id',deleteClass.service);
 router.get('/sessions/:id',readWithSessions.service);
