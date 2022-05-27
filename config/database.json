@@ -19,10 +19,11 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "url": "postgres://fertglotngxkte:7f4855179db90773561a86652f3ff18a865267e2e68a9d7a309c6df348f74616@ec2-3-234-131-8.compute-1.amazonaws.com:5432/da6l1s66tpg3t",
+    "username": "fertglotngxkte",
+    "password": "7f4855179db90773561a86652f3ff18a865267e2e68a9d7a309c6df348f74616",
+    "database": "da6l1s66tpg3t",
+    "host": "ec2-3-234-131-8.compute-1.amazonaws.com",
     "dialect": "postgres",
     "port" : 5432,
     "dialectOptions": {
