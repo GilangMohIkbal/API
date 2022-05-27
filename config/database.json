@@ -23,6 +23,20 @@
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "heroku"
+    "dialect": "postgres",
+    "port" : 5432,
+    "dialectOptions": {
+      "ssl": {
+        "require" : true,
+        "rejectUnauthorized": false
+      },
+      "native": true
+
+    },
+    "define": {
+      "timestamps": true,
+      "underscored": true,
+      "paranoid": true 
+    }
   }
 }
