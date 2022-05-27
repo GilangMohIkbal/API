@@ -25,6 +25,19 @@
     "database": "da6l1s66tpg3t",
     "host": "ec2-3-234-131-8.compute-1.amazonaws.com",
     "dialect": "postgres",
-    "port" : 5432
+    "port" : 5432,
+    "dialectOptions": {
+      "ssl": {
+        "require" : true,
+        "rejectUnauthorized": false
+      },
+      "native": true
+
+    },
+    "define": {
+      "timestamps": true,
+      "underscored": true,
+      "paranoid": true 
+    }
   }
 }
