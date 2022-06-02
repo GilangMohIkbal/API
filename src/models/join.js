@@ -3,18 +3,18 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class join extends Model {
+  class joins extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate({Users, Classes, join}) {
-      join.belongsTo(Users);
-      join.belongsTo(Classes);
+      joins.belongsTo(Users);
+      joins.belongsTo(Classes);
     }
   }
-  join.init({
+  joins.init({
     class_id: {
       type: DataTypes.UUID,
       primaryKey:true,
@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     role: DataTypes.ENUM("student","tutor","fasilitator")
   }, {
     sequelize,
-    modelName: 'join',
+    modelName: 'joins',
   });
-  return join;
+  return joins;
 };
