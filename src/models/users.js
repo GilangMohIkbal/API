@@ -11,9 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate({Users, Classes}) {
+    static associate({Users, join, presences}) {
       // define association here
-        Users.belongsToMany(Classes,{through: 'join'});
+        // Users.belongsToMany(Classes,{through: 'join'});
+        Users.hasMany(join);
+        Users.hasMany(presences);
     }
   }
   Users.init({
@@ -24,6 +26,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     name: DataTypes.STRING,
     email: DataTypes.STRING,
+    status: {
+      type: DataTypes.ENUM("user","admin"),
+      defaultValue: "user"
+      
+    },
     password: {type : DataTypes.STRING, set(value) {
       const salt = genSaltSync(10);
       this.setDataValue('password', hashSync(value, salt));

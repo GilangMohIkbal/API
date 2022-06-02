@@ -1,16 +1,36 @@
-const { Classes } = require("../../models");
+const { Classes, Users } = require("../../models");
 const { body } = require("express-validator");
 const moment = require("moment");
 
 
+
 const service = async (req,res)=> {
     try {
+        // const user = await Users.findOne({
+        //     where: {
+        //         id: req.auth.id
+        //     }
+        // })
+        // if(user.status === "admin") {
+        //     const payload = req.body;
+        //     const requestDB = await Classes.create(payload);
+        //     return res.json({
+        //         msg: "Class created successfully",
+        //         data: requestDB,
+        //     });
+        // } else {
+        //     return res.status(403).json({
+        //         msg: "You are not an admin"
+        //     })
+        // }
         const payload = req.body;
-        const requestDB = await Classes.create(payload);
-        return res.json({
-            msg: "Class created successfully",
-            data: requestDB,
-        });
+            const requestDB = await Classes.create(payload);
+            console.log(req.auth)
+            return res.json({
+                msg: "Class created successfully",
+                data: requestDB,
+            });
+        
     } catch (error) {
         return res.status(500).json({
             msg: error.toString(),
