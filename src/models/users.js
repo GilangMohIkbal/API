@@ -26,11 +26,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     name: DataTypes.STRING,
     email: DataTypes.STRING,
-    // status: {
-    //   type: DataTypes.ENUM("user","admin"),
-    //   defaultValue: "user"
+    status: {
+      type: DataTypes.ENUM("user","admin"),
+      defaultValue: "user"
       
-    // },
+    },
     password: {type : DataTypes.STRING, set(value) {
       const salt = genSaltSync(10);
       this.setDataValue('password', hashSync(value, salt));
