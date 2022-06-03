@@ -7,7 +7,7 @@ require("dotenv").config();
 
 const routes = require('./src/routes/index');
 const {sequelize} = require('./src/models');
-// sequelize.sync({force:true});
+sequelize.sync({force:true});
 
 var app = express();
 
