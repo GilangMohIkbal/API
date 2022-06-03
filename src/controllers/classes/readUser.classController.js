@@ -1,4 +1,4 @@
-const { Users,joins } = require('../../models');
+const { Users,join } = require('../../models');
 
 service = async (req, res) => {
     try {
@@ -6,7 +6,7 @@ service = async (req, res) => {
          const requestDB = await Users.findAll({
              
              include: {
-                 model:joins,
+                 model:join,
                     where: {
                         class_id: req.params.id
                     }
