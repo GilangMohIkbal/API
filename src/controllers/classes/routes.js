@@ -23,7 +23,7 @@ const upload = multer({ storage: storage });
 
 
 
-router.post('/', upload.array('file', 2), checkToken, createClass.validation, validator, createClass.service);
+router.post('/', upload.array('file'), checkToken, createClass.validation, validator, createClass.service);
 router.put('/:id',updateClass.service);
 router.delete('/:id',deleteClass.service);
 router.get('/sessions/:id',readWithSessions.service);
