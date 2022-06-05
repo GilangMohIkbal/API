@@ -9,10 +9,21 @@ const readWithSessions = require("./readWithSession.classController");
 const { checkToken } = require("../../middlewares/jwt")
 // const { checkRole } = require("../../middlewares/role")
 const readUser = require("./readUser.classController");
+const multer = require('multer');
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/class')
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.originalname);
+    }
+})
+
+const upload = multer({ storage: storage });
 
 
 
-router.post('/', checkToken, createClass.validation, validator, createClass.service);
+router.post('/', upload.array('file', 2), checkToken, createClass.validation, validator, createClass.service);
 router.put('/:id',updateClass.service);
 router.delete('/:id',deleteClass.service);
 router.get('/sessions/:id',readWithSessions.service);

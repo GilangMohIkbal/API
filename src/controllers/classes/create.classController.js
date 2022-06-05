@@ -13,7 +13,9 @@ const service = async (req,res)=> {
         })
         if(user.status === "admin") {
             const payload = req.body;
+            payload.file = process.env.baseURL + req.files[0].originalname;
             const requestDB = await Classes.create(payload);
+            
             return res.json({
                 msg: "Class created successfully",
                 data: requestDB,
