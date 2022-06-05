@@ -7,7 +7,7 @@ const { Classes, Sessions } = require("../../models");
         }
          const requestDB = await Classes.findAll({
              include: { 
-                attributes: ["id","name"],
+                // attributes: ["id","name"],
                 model : Sessions,
             },
                where,
