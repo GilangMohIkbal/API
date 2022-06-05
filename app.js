@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require("dotenv").config();
+const cors = require("cors")
 
 
 
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'uploads')));
 app.get('/cekDirname', (req,res)=> {
     return res.json(__dirname)
 })
+app.use(cors())
 app.use(routes);
 
 
