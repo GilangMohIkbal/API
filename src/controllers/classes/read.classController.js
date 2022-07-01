@@ -7,12 +7,12 @@ const service = async (req,res) => {
             where.id = req.params.id;
         }
 
-        const page = Number(req.query.page) || 1;
-        const limit = Number(req.query.limit) || 3;
+        // const page = Number(req.query.page) || 1;
+        // const limit = Number(req.query.limit) || 3;
         const requestDB = await Classes.findAll({
             where: where,
-            limit,
-            offset:(page-1)*limit,
+            // limit,
+            // offset:(page-1)*limit,
             order: [['createdAt','DESC']]
         }); 
         return res.json({
